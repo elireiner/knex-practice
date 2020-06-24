@@ -21,7 +21,7 @@ const ArticlesService = require('../src/articles-service');
  */
 
 
-describe.skip('Articles service object', () => {
+describe('Articles service object', () => {
     let db;
 
     // We'll use this array as an example of mock data that represents

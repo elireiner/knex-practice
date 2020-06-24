@@ -9,7 +9,7 @@ describe('shoppingListService', () => {
         {
             id: 1,
             name: 'Turnip the Beet',
-            price: 0.20,
+            price: Number(0.20),
             category: 'Lunch',
             checked: true,
             date_added: new Date('2029-01-22T16:28:32.615Z')
@@ -17,7 +17,7 @@ describe('shoppingListService', () => {
         {
             id: 2,
             name: 'Mascarphony',
-            price: 1.80,
+            price: Number(1.80),
             category: 'Lunch',
             checked: true,
             date_added: new Date('2100-05-22T16:28:32.615Z')
@@ -25,7 +25,7 @@ describe('shoppingListService', () => {
         {
             id: 3,
             name: 'Burgatory',
-            price: 1.50,
+            price: Number(1.50),
             category: 'Main',
             checked: false,
             date_added: new Date('1919-12-22T16:28:32.615Z'),
@@ -52,15 +52,15 @@ describe('shoppingListService', () => {
         })
 
         context('when there is data in shopping list', () => {
-            beforeEach('insert test data', () => {
+            beforeEach('insert test data', () => 
                 db('shopping_list')
                     .insert(testItems)
-            });
+            );
 
             it('returns the correct data', () => {
                 return ShoppingListService
                     .getAllItems(db)
-                    .then(actual => expect(actual).to.eql(testItems));
+                    .then(actual => expect(actual).to.equal(testItems));
             });
         });
     });
